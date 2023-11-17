@@ -9,9 +9,9 @@ class SavingPage extends StatefulWidget {
 }
 
 class _SavingPageState extends State<SavingPage> {
-  TextEditingController _dateInput = TextEditingController();
-  TextEditingController _total = TextEditingController();
-  TextEditingController _money = TextEditingController();
+  final TextEditingController _dateInput = TextEditingController();
+  final TextEditingController _total = TextEditingController();
+  final TextEditingController _money = TextEditingController();
 
   @override
   void initState() {
@@ -25,76 +25,72 @@ class _SavingPageState extends State<SavingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Neo List & Saving'),
+        title: const Text('Saving Page'),
       ),
       body: ListView(children: [
         Center(
           child: Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(children: [
-              Padding(
+               const Padding(
                   padding: EdgeInsets.only(
                 top: 40,
               )),
-              Text(
-                "Tabungan",
+              const Text(
+                "Savings",
                 style: TextStyle(fontSize: 24),
               ),
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(
                 top: 50,
               )),
-              Container(
-                child: TextField(
-                  controller: _money,
-                  decoration: InputDecoration(
-                      hintText: "Uang Masuk",
-                      labelText: "Uang Masuk",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      )),
-                  keyboardType: TextInputType.number,
-                ),
+              TextField(
+                controller: _money,
+                decoration: InputDecoration(
+                    hintText: "Uang Masuk",
+                    labelText: "Uang Masuk",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    )),
+                keyboardType: TextInputType.number,
               ),
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(
                 top: 20,
               )),
-              Container(
-                child: TextField(
-                  controller: _dateInput,
-                  decoration: InputDecoration(
-                      hintText: "Tanggal",
-                      labelText: "Tanggal",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      )),
-                  readOnly: true,
-                  onTap: () async {
-                    DateTime? pickedDate = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2000),
-                      lastDate: DateTime(2101),
-                    );
-                    if (pickedDate != null) {
-                      String formattedDate =
-                          DateFormat('yyyy-MM-dd').format(pickedDate);
-                      setState(() {
-                        _dateInput.text = formattedDate;
-                      });
-                    }
-                  },
-                ),
+              TextField(
+                controller: _dateInput,
+                decoration: InputDecoration(
+                    hintText: "Tanggal",
+                    labelText: "Tanggal",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    )),
+                readOnly: true,
+                onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101),
+                  );
+                  if (pickedDate != null) {
+                    String formattedDate =
+                        DateFormat('yyyy-MM-dd').format(pickedDate);
+                    setState(() {
+                      _dateInput.text = formattedDate;
+                    });
+                  }
+                },
               ),
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(
                 top: 20,
               )),
               TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 40, 150, 194)),
-                child: Text(
+                    backgroundColor: const Color.fromARGB(255, 40, 150, 194)),
+                child: const  Text(
                   'Tambah',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -109,22 +105,20 @@ class _SavingPageState extends State<SavingPage> {
                   });
                 },
               ),
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(
                 top: 20,
               )),
-              Container(
-                child: TextField(
-                  controller: _total,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                      hintText: "Total Tabungan",
-                      labelText: "Total Tabungan",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      )),
-                  readOnly: true,
-                ),
+              TextField(
+                controller: _total,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    hintText: "Total Tabungan",
+                    labelText: "Total Tabungan",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    )),
+                readOnly: true,
               ),
             ]),
           ),

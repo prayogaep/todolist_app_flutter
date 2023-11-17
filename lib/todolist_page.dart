@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist_app/models/todolist.dart';
 import 'package:todolist_app/todolist_add_page.dart';
@@ -12,20 +11,20 @@ class ToDoListPage extends StatefulWidget {
 }
 
 class _ToDoListPageState extends State<ToDoListPage> {
-  List<ToDoList> _todolist = [];
+  final List<ToDoList> _todolist = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Neo List & Saving'),
+        title: const Text('To Do List'),
       ),
       body: SafeArea(
         child: ListView.separated(
           itemCount: _todolist.length,
           itemBuilder: (context, index) {
-            final item = _todolist[index];
+            final value = _todolist[index];
             return Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 15,
                 vertical: 10,
               ),
@@ -46,10 +45,10 @@ class _ToDoListPageState extends State<ToDoListPage> {
                             }),
                         Column(
                           children: [
-                            Text("${item.name} (${item.id})"),
+                            Text("(${value.id}) ${value.name} "),
                             Text(
-                              "${item.desc}",
-                              style: TextStyle(color: Colors.grey),
+                              value.desc,
+                              style: const TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
@@ -58,14 +57,14 @@ class _ToDoListPageState extends State<ToDoListPage> {
                             Row(
                               children: [
                                 !_todolist[index].isDone
-                                    ? Container(
+                                    ? SizedBox(
                                         width: 40,
                                         height: 40,
                                         child: TextButton(
                                           style: TextButton.styleFrom(
-                                              backgroundColor: Color.fromARGB(
+                                              backgroundColor:const  Color.fromARGB(
                                                   255, 40, 150, 194)),
-                                          child: Text(
+                                          child: const Text(
                                             'Edit',
                                             style: TextStyle(
                                               color: Colors.white,
@@ -89,17 +88,17 @@ class _ToDoListPageState extends State<ToDoListPage> {
                                           },
                                         ),
                                       )
-                                    : Text(""),
-                                Padding(padding: EdgeInsets.only(left: 5)),
+                                    : const Text(""),
+                                const Padding(padding: EdgeInsets.only(left: 5)),
                                 !_todolist[index].isDone
-                                    ? Container(
+                                    ? SizedBox(
                                         width: 70,
                                         height: 40,
                                         child: TextButton(
                                           style: TextButton.styleFrom(
-                                              backgroundColor: Color.fromARGB(
+                                              backgroundColor: const Color.fromARGB(
                                                   255, 185, 31, 31)),
-                                          child: Text(
+                                          child: const Text(
                                             'Delete',
                                             style: TextStyle(
                                               color: Colors.white,
@@ -112,7 +111,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
                                           },
                                         ),
                                       )
-                                    : Text(""),
+                                    : const Text(""),
                               ],
                             ),
                           ],

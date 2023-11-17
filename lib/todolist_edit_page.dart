@@ -29,9 +29,9 @@ class _ToDoListEditPageState extends State<ToDoListEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Neo List & Saving')),
+      appBar: AppBar(title: const Text('To Do List')),
       body: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             TextField(
@@ -43,7 +43,7 @@ class _ToDoListEditPageState extends State<ToDoListEditPage> {
                     borderRadius: BorderRadius.circular(20.0),
                   )),
             ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
+            const Padding(padding: EdgeInsets.only(top: 20.0)),
             TextField(
               // obscureText: true,
               controller: _desc,
@@ -55,14 +55,14 @@ class _ToDoListEditPageState extends State<ToDoListEditPage> {
                     borderRadius: BorderRadius.circular(20.0),
                   )),
             ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
-            Container(
+            const Padding(padding: EdgeInsets.only(top: 20.0)),
+            SizedBox(
               width: 150,
               height: 40,
               child: TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 40, 150, 194)),
-                child: Text(
+                    backgroundColor: const  Color.fromARGB(255, 40, 150, 194)),
+                child: const Text(
                   'Simpan',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -76,7 +76,7 @@ class _ToDoListEditPageState extends State<ToDoListEditPage> {
                 },
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
+            const Padding(padding: EdgeInsets.only(top: 20.0)),
             // ListView(
             //   children: ,
             // ),
