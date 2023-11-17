@@ -7,19 +7,19 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Neo List & Saving')),
+      appBar: AppBar(title: const Text('To Do List')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: 150,
               height: 40,
               child: TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 40, 150, 194)),
-                child: Text(
-                  'Notes',
+                    backgroundColor: const Color.fromARGB(255, 40, 150, 194)),
+                child: const Text(
+                  'To Do',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
@@ -29,18 +29,18 @@ class MainPage extends StatelessWidget {
                 },
               ),
             ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.only(
               top: 30,
             )),
-            Container(
+            SizedBox(
               width: 150,
               height: 40,
               child: TextButton(
                 style: TextButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 40, 150, 194)),
-                child: Text(
-                  'Tabungan',
+                child: const Text(
+                  'Savings',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
